@@ -54,6 +54,16 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = "crud_api.urls"
 
+REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'CRUD API',
+    'DESCRIPTION': 'This is a CRUD API app built using drf.',
+    'VERSION': '1.0.0',
+}
+
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
