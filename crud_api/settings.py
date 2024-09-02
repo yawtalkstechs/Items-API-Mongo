@@ -9,8 +9,12 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
-
+import os
 from pathlib import Path
+from dotenv import load_dotenv
+
+
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -55,13 +59,13 @@ MIDDLEWARE = [
 ROOT_URLCONF = "crud_api.urls"
 
 REST_FRAMEWORK = {
-    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
 }
 
 SPECTACULAR_SETTINGS = {
-    'TITLE': 'CRUD API',
-    'DESCRIPTION': 'This is a CRUD API app built using drf.',
-    'VERSION': '1.0.0',
+    "TITLE": "CRUD API",
+    "DESCRIPTION": "This is a CRUD API app built using drf.",
+    "VERSION": "1.0.0",
 }
 
 TEMPLATES = [
@@ -88,8 +92,8 @@ WSGI_APPLICATION = "crud_api.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "ENGINE": "djongo",
+        "NAME": os.getenv('DB_NAME'),
     }
 }
 
